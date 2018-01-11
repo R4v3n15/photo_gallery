@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+<div style="margin-top: 1rem;">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+        	<div class="well">
+        		<h4 class="text-center text-warning">Delete Album <i class="fa fa-warning"></i></h4><br>
+        		<form method="post" id="album_edit_form" enctype="multipart/form-data">{% csrf_token %}
+	                <p class="text-center">Are you sure you want to delete "{{ object }} Albums"?</p> <br>
+	                <div class="row">
+	                	<div class="col-sm-6 text-center">
+	                		<a href="/gallery/" class="btn btn-danger">Cancel <i class="fa fa-ban"></i></a><br>
+	                	</div>
+	                	<div class="col-sm-6 text-center">
+	                		<button type="submit" class="btn btn-info">Confirm <i class="fa fa-trash-o"></i></button>
+	                	</div>
+	                </div>
+	            </form>
+        	</div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+    <script src="../static/js/actions.js"></script>
+{% endblock %}

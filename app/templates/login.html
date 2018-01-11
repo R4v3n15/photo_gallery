@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="row justify-content-center">
+		<div class="col-md-6">
+			<div class="well row justify-content-center">
+				<div class="col-md-8 text-center">
+					<h4 class="text-center text-info">Login <i class="fa fa-user-circle"></i></h4><br>
+					{% if message %}
+					    <small class="error-message">{{ message }}</small>
+					{% endif %}
+					<form method="post" accept-charset="utf-8">{% csrf_token %}
+						{{ form.as_p }}
+						<p class="text-center">
+							<button type="submit" class="btn btn-raised btn-info">Entrar</button>
+						</p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

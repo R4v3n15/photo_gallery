@@ -1,0 +1,9 @@
+.img-item{
+	padding: 0.35rem;
+	overflow: hidden;
+}
+
+.img-item > img {
+	height: 100%;
+	box-shadow: 4px 4px 12px rgb(188,188,188);
+}

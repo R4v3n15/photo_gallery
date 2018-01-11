@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+    <link href="../static/css/album.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+
+    <div class="col-md-12 text-center" style="margin-bottom: 1rem;">
+        <h3 class="text-info">Albums <i class="fa fa-book"></i></h3>
+    </div>
+    <div class="row well">
+        {% if albums %}
+            {% for album in albums %}
+                <div class="col-md-4" style="margin-bottom: 1rem;">
+                    <div class="card text-center">
+                        <img src="{{ album.thumb.url }}" alt="{{ album.title }}" height="200px">
+                        <h4 class="card-title">{{ album.title }}</h4>
+                        <p class="card-text">{{ album.description|truncatechars:120 }}</p>
+                        <div class="card-buttons">
+                            <div class="row justify-content-center">
+                                <div class="col-md-4">
+                                    <a href="{% url 'album' album.slug %}" class="btn btn-sm btn-info">
+                                        <i class="fa fa-eye"></i> View
+                                    </a>
+                                </div>
+                                <div class="col-md-4">
+                                    <a href="{% url 'update' album.slug %}" class="btn btn-sm btn-success">
+                                        <i class="fa fa-edit"></i> Edit
+                                    </a>
+                                </div>
+                                <div class="col-md-4">
+                                    <a href="{% url 'delete' album.slug %}" class="btn btn-sm btn-danger">
+                                        <i class="fa fa-trash-o"></i> Delete
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-md-10 text-center" style="margin-bottom: 3rem;">
+                <h4 class="text-primary">No tiene albums.</h4>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="pagination center">
+        <span class="step-links">
+            {% if albums.has_previous %}
+                <a href="?page={{ albums.previous_page_number }}" 
+                   class="waves-effect waves-light btn btn-large">
+                    Previous
+                </a>
+            {% endif %}
+
+            {% if albums.has_next %}
+                <a href="?page={{ albums.next_page_number }}" 
+                   class="waves-effect waves-light btn btn-large">
+                    Next
+                </a>
+            {% endif %}
+        </span>
+    </div>
+
+{% endblock %}

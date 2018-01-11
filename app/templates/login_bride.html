@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="../static/img/favicon.png">
+
+        <title>Gallery</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../static/css/bootstrap-material.min.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="../static/css/signin.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 py-4">
+                    <div class="well">
+                        <form class="form-signin"
+                              method="post"
+                              action="/login/">
+                              {% csrf_token %}
+                            <h3 class="form-signin-heading text-center">Please sign in</h3>
+                            <br><br>
+                            <label for="inputEmail" class="sr-only">Email address</label>
+                            <input type="text" 
+                                   id="id_username" 
+                                   name="username" 
+                                   class="form-control" 
+                                   placeholder="Username" 
+                                   required autofocus>
+                            <br>
+                            <label for="inputPassword" class="sr-only">Password</label>
+                            <input type="password" 
+                                   id="id_password"
+                                   name="password" 
+                                   class="form-control" 
+                                   placeholder="Password" 
+                                   required>
+
+                            {% if form.errors %}
+                                <p class="label label-danger">
+                                    Your username and password didn't match. 
+                                    Please try again.
+                                </p>
+                            {% endif %}
+                            <br>
+                            <button class="btn btn-md btn-primary btn-raised" type="submit">
+                                Sign in
+                            </button>
+                            <input type="hidden" name="next" value="{{ next }}" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- /container -->
+
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="../static/js/ie10-viewport-bug-workaround.js"></script>
+    </body>
+</html>

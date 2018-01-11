@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+<div style="margin-top: 2rem;">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+        	<div class="well">
+        		<h4 class="text-center text-info">Editar Album <i class="fa fa-edit"></i></h4><br>
+        		<form method="post" id="album_edit_form" enctype="multipart/form-data">{% csrf_token %}
+	                <!-- {{ form.as_p }} -->
+	                <div class="form-group row">
+	                	<label for="id_title" class="col-sm-3 col-form-label col-form-label-md">Title:</label>
+	                	<div class="col-sm-9">
+	                		<input type="text" class="form-control form-control-md" name="title" value="{{ form.title.value }}" required id="id_title" />
+	                	</div>
+	                </div>
+					<div class="form-group row">
+						<label for="id_description" class="col-sm-3 col-form-label col-form-label-md">Description:</label> 
+						<div class="col-sm-9">
+							<textarea name="description" id="id_description" class="form-control form-control-md" rows="5" autocomplete="off">{{ form.description.value }}</textarea>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="id_thumb" class="col-sm-3 col-form-label col-form-label-md">Thumb:</label>
+						<div class="col-sm-9">
+							<label for="id_thumb" class="col-form-label col-form-label-md">Actualmente: </label>
+							<a href="/media/albums_thumb/phantom_assassin.jpg">{{ form.thumb.value }}</a>
+							<div class="row">
+								<label for="id_thumb" class="col-form-label col-form-label-md">Modificar:</label>
+								<div class="col-sm-9">
+									<input type="file" class="form-control form-control-sm" name="thumb" id="id_thumb" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="id_tags" class="col-sm-3 col-form-label col-form-label-md">Tags:</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control form-control-md" name="tags" value="{{ form.tags.value }}" required id="id_tags" />
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="id_is_visible" class="col-sm-3 col-form-label col-form-label-md">Is visible:</label>
+						<div class="col-sm-9">
+							<label class="custom-control custom-checkbox">
+							  	<input type="checkbox" id="id_is_visible" name="is_visible" checked class="custom-control-input">
+							  	<span class="custom-control-indicator"></span>
+							</label>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="id_slug" class="col-sm-3 col-form-label col-form-label-md">Slug:</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control form-control-md" name="slug" value="{{ form.slug.value }}" maxlength="50" required id="id_slug" />
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="id_zip" class="col-sm-3 col-form-label col-form-label-md">Zip:</label>
+						<div class="col-sm-9">
+							<input type="file" class="form-control form-control-sm" name="zip" id="id_zip" />
+						</div>
+					</div>
+					<div class="text-center">
+						<br>
+	                	<input type="submit" value="Update" class="btn btn-info" />
+	                	<br>
+	            	</div>
+	            </form>
+        	</div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+    <script src="../static/js/actions.js"></script>
+{% endblock %}

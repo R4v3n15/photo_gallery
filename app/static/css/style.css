@@ -1,0 +1,42 @@
+footer {
+	margin: 0.5rem;
+}
+
+footer>p {
+	margin: 0;
+}
+.error-message {
+	color: red;
+	font-size: 12px;
+	text-align: center;
+}
+
+.well {
+	padding: 1rem 0.8rem;
+  	background-color: rgba(255,255,255,0.8);
+  	box-shadow: 4px 4px 15px rgb(115,115,115);
+  	border-radius: 2px;
+}
+
+.well-label {
+	margin: 1rem 15rem;
+	padding: 3rem 0.8rem;
+  	background-color: rgba(238,238,238,0.8);
+  	box-shadow: 4px 4px 2px rgb(175,175,175);
+  	border-radius: 2px;
+}
+
+.left {
+  	float: left;
+}
+
+.right {
+  	float: right;
+}
+
+.errorlist {
+	color: rgb(210,20,10);
+	font-size: 11px;
+	margin-bottom: 0.2rem;
+	text-align: center;
+}
